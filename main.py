@@ -2,13 +2,13 @@ from tkinter import *
 import subprocess
 
 
-def copy2clip(num): #полученная сумма сразу копируется в кеш
+def copy2clip(num):
     cmd = f'echo {str(num).strip()}|clip'
     return subprocess.check_call(cmd, shell=True)
 
 
 def clicked():
-    a = ''.join(b.get().split()) # убирает пробелы
+    a = ''.join(b.get().split())  # убирает пробелы
     res = (int(a) - (int(a) * prosent_input())) / kurs() #формула подсчета
     output = round(res, 2)
 
@@ -23,7 +23,6 @@ def update_output_text(output):
 
 def clear_input():
     text1.delete(1.0, END)
-
 
 def prosent_input():
     return float(b_2.get()) * 0.01
@@ -46,6 +45,7 @@ b.focus()
 
 btn = Button(window, text="Нажми!", command=clicked)
 btn.grid(column=2, row=0)
+
 
 btn = Button(window, text="Очистить все!", command=clear_input)
 btn.grid(column=2, row=2)
@@ -70,4 +70,7 @@ lbl_3.grid(column=0, row=4)
 
 btn_3 = Button(window, text="Нажми меня!", command=kurs)
 btn_3.grid(column=2, row=4)
+
 window.mainloop()
+
+
